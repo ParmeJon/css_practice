@@ -58,6 +58,15 @@ absolute or position: relative." */
     height: 35px;
 }
 
+.logo:hover {
+    color: black;
+    height: 50px;
+}
+/* Can call animation on other elements. */
+/* .logo:hover {
+    animation: moveInRight 1s ease-out;
+} */
+
 /* translate effects the div itself */
 /* top and left are in relation to the parent */
 .text-box {
@@ -70,6 +79,10 @@ absolute or position: relative." */
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    /* prevent some shakiness */
+    /* back part of an element when transforming will be hidden */
+    backface-visibility: hidden;
 }
 
 /* span is default inline like text */
@@ -80,6 +93,14 @@ absolute or position: relative." */
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* other options */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
@@ -87,4 +108,44 @@ absolute or position: relative." */
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    
+    /* SHORT HAND PROPERTY */
+    animation: moveInRight 1s ease-out;
 }
+
+/* Create a Keyframe called movInLeft that you can apply later. */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    /* Rotations are also possible. */
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
