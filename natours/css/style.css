@@ -149,6 +149,18 @@ absolute or position: relative." */
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 /* Psuedo Classes are special state of a selector. */
 .btn:link,
 .btn:visited {
@@ -164,6 +176,7 @@ absolute or position: relative." */
     /* shorthand for transitions */
     /* Transition on initial state */
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -182,3 +195,34 @@ absolute or position: relative." */
     color: #777;
 }
 
+/* treated as a child of the btn */
+/* places this behind the btn with relative and absolute relationship */
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+/* When we hover button effect the after pseudo element */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* animation name, duration, timing function, delay */
+    animation: moveInBottom .5s ease-out .75s; 
+    /* automatically applies 0% before the animation starts. */
+    animation-fill-mode: backwards;
+}
