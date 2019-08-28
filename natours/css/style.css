@@ -1,12 +1,3 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
 /* Allows to start clean */
 /* border-box removes padding anad margins being added to width and height */
 /* Inheriting box-sizing is better practice */
@@ -14,169 +5,130 @@ Dark green: #28b485
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
 
 /* Setting Root Font size to handle css with rem */
 /* rem does not work for older browsers like old internet explorer */
 html {
-    /* bad practice because it overwrites font-size setting in their browser for users */
-    /* counting on the default 16px */
-    font-size: 62.5%;
-}
+  /* bad practice because it overwrites font-size setting in their browser for users */
+  /* counting on the default 16px */
+  font-size: 62.5%; }
 
 /* inheritence for font in body */
 /* The line-height property defines the amount of space above and below inline elements. */
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
 
 /* the height of this box will be 95% of view height */
 /* cover - w.e the size always try to fit in the box. */
 /* top of image always stays at the top */
 /* gradient can be done with background-image */
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom, 
-        rgba(126, 213, 111, 0.8), 
-        rgb(40, 180, 133, 0.8)),
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top; 
-    position: relative;
-    /* clip-path to specify where the div will show */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
-}
-
-/* This works because position: absolute means something like "use top, right, 
-bottom, left to position yourself in relation to the nearest ancestor who has position: 
-absolute or position: relative." */
-/* Default position is static */
-.header__logo-box {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* clip-path to specify where the div will show */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* This works because position: absolute means something like "use top, right, 
+    bottom, left to position yourself in relation to the nearest ancestor who has position: 
+    absolute or position: relative." */
+  /* Default position is static */
+  /* Can call animation on other elements. */
+  /* .logo:hover {
+        animation: moveInRight 1s ease-out;
+    } */
+  /* translate effects the div itself */
+  /* top and left are in relation to the parent */ }
+  .header__logo-box {
     position: absolute;
     top: 4rem;
-    left: 4rem;
-}
-
-.header__logo {
-    height: 3.5rem;
-}
-
-/* Can call animation on other elements. */
-/* .logo:hover {
-    animation: moveInRight 1s ease-out;
-} */
-
-/* translate effects the div itself */
-/* top and left are in relation to the parent */
-.header__text-box {
+    left: 4rem; }
+  .header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-}
+    text-align: center; }
+  .header__logo {
+    height: 3.5rem; }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-
-    /* prevent some shakiness */
-    /* back part of an element when transforming will be hidden */
-    backface-visibility: hidden;
-    margin-bottom: 6rem;
-}
-
-/* span is default inline like text */
-/* display block create line breaks. */
-/* and occupy the entire width */
-.heading-primary--main {
+  color: #fff;
+  text-transform: uppercase;
+  /* prevent some shakiness */
+  /* back part of an element when transforming will be hidden */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  /* span is default inline like text */
+  /* display block create line breaks. */
+  /* and occupy the entire width */ }
+  .heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
-
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
-
     /* other options */
     /* animation-iteration-count: 3; */
-    /* animation-delay: 3s; */
-}
-
-.heading-primary--sub {
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
-    
     /* SHORT HAND PROPERTY */
-    animation: moveInRight 1s ease-out;
-}
+    animation: moveInRight 1s ease-out; }
 
 /* Create a Keyframe called movInLeft that you can apply later. */
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    /* Rotations are also possible. */
-    /* 60% {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /* Rotations are also possible. */
+  /* 60% {
         transform: rotate(180deg);
     } */
-
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    80% {
-        transform: translateX(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /* Psuedo Classes are special state of a selector. */
-.btn:link,
-.btn:visited {
+.btn {
+  /* treated as a child of the btn */
+  /* places this behind the btn with relative and absolute relationship */ }
+  .btn:link, .btn:visited {
     text-transform: uppercase;
     /* gets rid of underline */
     text-decoration: none;
@@ -190,28 +142,24 @@ absolute or position: relative." */
     /* Transition on initial state */
     transition: all .2s;
     position: relative;
-    font-size: 1.6rem;
-}
-
-.btn:hover {
-    transform: translateY(-.3rem);
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
     /* Parameters: X direction, Y direction, Blur, Color*/
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
-}
-
-.btn:active {
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-}
-
-.btn--white {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* When we hover button effect the after pseudo element */ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
     background-color: #fff;
-    color: #777;
-}
-
-/* treated as a child of the btn */
-/* places this behind the btn with relative and absolute relationship */
-.btn::after {
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
     content: "";
     display: inline-block;
     height: 100%;
@@ -221,22 +169,9 @@ absolute or position: relative." */
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all .4s;
-}
-
-.btn--white::after {
-    background-color: white;
-}
-
-/* When we hover button effect the after pseudo element */
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.btn-animated {
+    transition: all .4s; }
+  .btn-animated {
     /* animation name, duration, timing function, delay */
-    animation: moveInBottom .5s ease-out .75s; 
+    animation: moveInBottom .5s ease-out .75s;
     /* automatically applies 0% before the animation starts. */
-    animation-fill-mode: backwards;
-}
+    animation-fill-mode: backwards; }
