@@ -1,0 +1,26 @@
+/* Allows to start clean */
+/* border-box removes padding anad margins being added to width and height */
+/* Inheriting box-sizing is better practice */
+/* need to target after and before. */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* Setting Root Font size to handle css with rem */
+/* rem does not work for older browsers like old internet explorer */
+html {
+    /* bad practice because it overwrites font-size setting in their browser for users */
+    /* counting on the default 16px */
+    // defines what 1 rem is.
+    font-size: 62.5%;
+}
+
+/* inheritence for font in body */
+/* The line-height property defines the amount of space above and below inline elements. */
+body {
+    box-sizing: border-box;
+}

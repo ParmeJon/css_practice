@@ -1,0 +1,49 @@
+/* inheritence for font in body */
+/* The line-height property defines the amount of space above and below inline elements. */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    /* prevent some shakiness */
+    /* back part of an element when transforming will be hidden */
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    /* span is default inline like text */
+/* display block create line breaks. */
+/* and occupy the entire width */
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+
+        /* other options */
+        /* animation-iteration-count: 3; */
+        /* animation-delay: 3s; */
+    }
+
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        
+        /* SHORT HAND PROPERTY */
+        animation: moveInRight 1s ease-out;
+    }
+}
