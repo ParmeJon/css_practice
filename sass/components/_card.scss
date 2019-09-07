@@ -12,6 +12,8 @@
         top: 0;
         left: 0;
         width: 100%;
+        // NEEDED for safari the webkit version.
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         border-radius: 3px;
         overflow: hidden;
@@ -54,8 +56,8 @@
         height: 23rem;
         // new feature safari firefox googlechrome
         background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
         // Said this is needed below but this was not in my case due to the overflow hidden not working because of clip path.
         // border-top-left-radius: 3px;
@@ -91,8 +93,8 @@
     &__heading-span {
         padding: 1rem 1.5rem;
         // treat both entities as two elements
-        -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
 
         &--1 {
             background-image: linear-gradient(to right bottom, 

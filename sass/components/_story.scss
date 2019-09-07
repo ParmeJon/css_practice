@@ -21,19 +21,22 @@
         float: left;
         // polygon and circle have no support from IE and Edge
         // only works with float and defined dimensions.
-        -webkit-shape-outside: circle(50% at 50% 50%);
         shape-outside: circle(50% at 50% 50%);
-        -webkit-clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
         transform: translateX(-3rem) skewX(12deg);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
         position: relative;
+        overflow: hidden;
     }
 
     &__img {
         height: 100%;
         transform: translateX(-4rem) scale(1.4);
         // fixes small glitch of moving too far;
-        // backface-visibility: hidden;
+        backface-visibility: hidden;
         transition: all .5s;
     }
 
@@ -53,7 +56,7 @@
         opacity: 0;
         transition: all .5s;
         // fixes small glitch of moving too far;
-        // backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 
     &:hover &__caption {
