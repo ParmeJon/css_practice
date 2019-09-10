@@ -1,7 +1,7 @@
 .row {
     max-width: $grid-width;
     // trick to center block elements
-    margin: 0 auto;
+    margin: 0 5rem;
     // everything except the last child with NOT
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
