@@ -4,7 +4,7 @@
   "description": "- flexbox     - grid     - animations",
   "main": "index.js",
   "devDependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.0"
   },
   "scripts": {
     "compile:sass": "node-sass sass/main.scss natours/css/style.css -w"
